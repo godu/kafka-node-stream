@@ -3,10 +3,12 @@
 var kafka = require('kafka-node');
 var HighLevelConsumer = kafka.HighLevelConsumer;
 var HighLevelProducer = kafka.HighLevelProducer;
+var client = new kafka.Client('localhost:2181');
 var consumer = new HighLevelConsumer(client, [{ topic: 'history' }], {
   groupId: 'arthur-test'
 });
 
+var productClient = new kafka.Client('localhost:2181');
 var producer = new HighLevelProducer(productClient);
 
 
